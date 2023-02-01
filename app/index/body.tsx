@@ -5,7 +5,7 @@ import Spinner from "./body/spinner";
 import Start from "./body/start";
 const Body = () => {
   return (
-    <div className="mx-7">
+    <div>
       <Spinner />
       <Start />
       <Content />

@@ -1,10 +1,13 @@
 import Header from "./index/header"
 import Body from "./index/body"
+import Footer from "./index/footer"
+
 const page = () => {
   return (
-    <div className="bg-sky-600 wrapper">
+    <div className="wrapper">
       <Header />
       <Body />
+      <Footer />
     </div>
   )
 }
