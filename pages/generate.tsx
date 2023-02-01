@@ -4,7 +4,6 @@ const Generator = () => {
   return (
     <>
     <Metatags title="Generate Free Gift cards- Free giftcard Generator" />
-    <p>Simple Usage</p>
   </>
   )
 }

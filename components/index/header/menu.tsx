@@ -2,7 +2,7 @@ import React from 'react'
 
 const Menu = () => {
   return (
-    <div><div id="menu" style={{display: 'block'}}>
+    <div><div id="menu invisible">
     <ul>
       <a href="index.html" id="menu-logo" />
       <li><a className="menu" href="free-google-play-gift-cards.html">Google Play</a></li>

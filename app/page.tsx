@@ -1,6 +1,6 @@
-import Header from "./index/header"
-import Body from "./index/body"
-import Footer from "./index/footer"
+import Header from "components/index/header"
+import Body from "components/index/body"
+import Footer from "components/index/footer"
 
 const page = () => {
   return (
