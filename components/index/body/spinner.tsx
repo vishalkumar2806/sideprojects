@@ -1,22 +1,14 @@
-'use client';
 import React from 'react'
-import { useState } from 'react';
-const Spinner = () => {
-
-  const spinnerFunc = (e : any) => { 
-    console.log(e.target.classList[3])
-  }
-
+import { useAppSelector } from '@/app/redux/hooks/hooks'
+import Gen from './spinner/gen'
+import BodyGen from './spinner/body'
+const Spinner = ({ gen } : any) => {
   return (
-    <div id="start" style={{transform: 'translateY(0px)'}}>
-    <div className="start-gift-card card-google pos-1"><div className="value">$1000</div></div>
-    <div className="start-gift-card card-steam pos-3"><div className="value">$1000</div></div>
-    <div className="start-gift-card card-playstation pos-3"><div className="value">$1000</div></div>
-    <div className="start-gift-card card-spotify pos-3"><div className="value">$1000</div></div>
-    <div className="start-gift-card card-itunes pos-3"><div className="value">$1000</div></div>
-    <div className="start-gift-card card-paypal pos-2"><div className="value">$1000</div></div>
-    <div className="start-gift-card card-amazon pos-0" onLoad={e => spinnerFunc(e) }><div className="value">$1000</div></div>
-  </div>
+    <div>
+      { 
+      gen ? <Gen card={gen}/> : <BodyGen />
+      }
+    </div>
   )
 }
 export default Spinner

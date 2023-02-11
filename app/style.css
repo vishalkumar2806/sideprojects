@@ -1,3 +1,5 @@
+
+
 * {
   position: relative;
   margin: 0;
@@ -332,6 +334,9 @@ body.page #menu {
   background-image: url("./../public/cards.svg");
   background-size: 800% 200%;
   background-position: 0 0;
+}
+.position{ 
+  width: 20vh !important
 }
 .start-gift-card .value {
   position: absolute;
@@ -764,7 +769,7 @@ body.page #title h1 {
   height: 100%;
 }
 #hacklines {
-  display: none;
+  display: block;
 }
 #steps {
   height: 8vh;
@@ -892,7 +897,7 @@ body.page #title h1 {
   top: 28vw;
   background: rgba(0, 0, 0, 0.1);
   border-radius: 3vw;
-}
+}show
 #widgetholder iframe {
   position: absolute;
   top: 0;

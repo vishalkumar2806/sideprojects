@@ -12,7 +12,11 @@ module.exports = {
     container : {
       Center : "true",
     },
-    extend: {},
+    extend: { 
+        fontfamily: {
+          Jetbrains : ['JetBrains Mono', 'monospace']
+      }
+    }
   },
   plugins: [],
 }

@@ -9,7 +9,7 @@ export default function RootLayout({
   return (
     <html>
       <head />
-      <body className="bg-sky-600">
+      <body>
         <Providers>{children}</Providers>
       </body>
     </html>

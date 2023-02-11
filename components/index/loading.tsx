@@ -1,24 +1,22 @@
-'use client';
-import React from 'react'
-import { Audio } from 'react-loader-spinner';
+"use client";
+import React from "react";
+import { Rings } from "react-loader-spinner";
 
 const Loading = () => {
   return (
     <div className="wrapper m-0 p-0">
-    <Audio
-    height="100"
-    width="100"
-    color="#4fa94d"
-    ariaLabel="audio-loading"
-    wrapperStyle={{}}
-    wrapperClass="wrapper-class"
-    visible={true}
-    />
+      <Rings
+        height="80"
+        width="80"
+        color="#4fa94d"
+        radius="6"
+        wrapperStyle={{}}
+        wrapperClass=""
+        visible={true}
+        ariaLabel="rings-loading"
+      />
     </div>
-  )
-}
+  );
+};
 
-export default Loading
-
-
-
+export default Loading;
