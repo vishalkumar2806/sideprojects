@@ -14,7 +14,7 @@ module.exports = {
     },
     extend: { 
         fontfamily: {
-          Jetbrains : ['JetBrains Mono', 'monospace']
+          jet: ["JetBrains Mono"]
       }
     }
   },

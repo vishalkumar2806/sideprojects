@@ -1,9 +1,18 @@
-import React from "react";
+'use client';
+import React, { useState } from "react";
 import Card from "./content/card";
 import genlink from "@/components/functions/genlink";
 import GenBlock from "./genblock/genblock";
+import Link from "next/link";
+import clsx from "clsx";
+
 const priceList = ['100$', '500$','1000$']
 const CardContainer = ({card} : any) => {
+  const [start , updateStart] = useState(false)
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    updateStart(true)
+  }
   
     const cardtitle = genlink(card)
   return (
@@ -12,12 +21,26 @@ const CardContainer = ({card} : any) => {
             { priceList.map( (price, index) => { 
               return(
                 <div className="flex-box" key={index}>
-                <Card title={cardtitle} link={card.link} text={price}/>
+                {/* <Card title={cardtitle} link={card.link} text={price}/> */}
+                <div>
+                <div className={clsx("choose-gift-card", cardtitle )}>
+                    <div className="value position">
+                      <button
+                        className={`generate bck-${card.link}`} onClick={(e) => handleSubmit(e)}
+                      >
+                      {price}
+                      </button>
+                    </div>
+                </div>
+              </div>
                 </div>
               )
             })
           }
-        <GenBlock gen={card} />
+          {
+            start ? <GenBlock gen={card} /> : ''
+          }
+        
         </div>
     </>
   );

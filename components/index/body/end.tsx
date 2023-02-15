@@ -3,7 +3,7 @@ import Link from 'next/link'
 const End = () => {
   return (
     <div>
-    <div id="gift-cards" style={{transform: 'translateY(75px) skewY(0deg);'}}>
+    <div id="gift-cards" style={{transform: 'translateY(75px) skewY(0deg)'}}>
     <Link href="/generate?link=google" >
     <div className="gift-card-home">
       <div className="background bck-google" />
