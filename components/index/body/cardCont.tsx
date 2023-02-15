@@ -9,7 +9,7 @@ import clsx from "clsx";
 const priceList = ['100$', '500$','1000$']
 const CardContainer = ({card} : any) => {
   const [start , updateStart] = useState(false)
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     updateStart(true)
   }
