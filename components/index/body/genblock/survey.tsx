@@ -1,16 +1,31 @@
+'use client';
+import { useEffect,useState } from 'react'
 import React from 'react'
 import { Oval, TailSpin } from 'react-loader-spinner'
-import LinkAnim from './linkAni'
-
-const links = [{title: 'GET A FREE IPHONE 14 PRO MAX', link : 'offer_link'},
-{title: 'GET A FREE ONE MONTH NETFLIX!!', link : 'offer_link'},
-{title: 'WIN A CHANCE TO FREE TRIP TO HUWAI!!', link : 'offer_link'},
-{title: 'GET A FREE GROCERIES FOR ONE MONTH', link : 'offer_link'}
-]
+import LinkAnim from './linkAnim'
+import axios from 'axios';
 const delay = 3000
 
 
+const links = ['a', "b", "c", "d",]
+
+
 const Survey = ({gen} : {gen : string}) => {
+  const [offers, setoffers ] = useState([])
+  useEffect(() => {
+    const grabOffers = async () => {
+      try{ 
+       axios.get('/offers').then( resp => {
+        const offers = resp.data.offers
+        setoffers(offers)
+       })
+      }catch{
+        console.log('something has happened')
+      }
+    } 
+    grabOffers()
+  } , [])
+
   return (
     <div
     id="generatorbox"
@@ -44,16 +59,17 @@ const Survey = ({gen} : {gen : string}) => {
         <div className="flex flex-col justify-between  border border-3 h-5/6 flex-nowrap rounded-lg px-2 py-2">
             <div className="text-white" >
               {
-                links.map((link, i) => {
+                offers.map((offer, i) => {
                   return( 
-                    <LinkAnim delay={delay + 1000 * i} color={gen} key={i} title={link.title} link={link.link}/>
+                    <LinkAnim delay={delay + 1000 * i} key={i} offer={offer}/>
                   )
                 })
               }
               
             </div>
         <div className='border-sky-500 border-8'>
-            <div className='flex gap-2 justify-center text-xl bg-sky-600 text-white w-full text-center wrap level1 p-4 rounded-full'>Waiting for Verification <TailSpin
+            </div><div className='flex flex-col gap-2 justify-center text-xl bg-sky-600 text-white w-full text-center wrap level1 p-4 rounded-full'>
+            <div className='flex gap-2 items-center align-center space-between mx-auto'><span>Waiting for Verification</span> <TailSpin
             height={25}
             width={25}
             color="#1da1f2"
@@ -61,12 +77,12 @@ const Survey = ({gen} : {gen : string}) => {
             wrapperClass=""
             visible={true}
             radius={3}
-            ariaLabel='tail-spin-loading' />
+            ariaLabel='tail-spin-loading' /></div>
+            <div className='text-xs'>Complete one or more offer to complete verification</div>
             </div>
             </div>
         </div>
         </div>
-      </div>
   )
 }
 

@@ -6,15 +6,15 @@ import { loading } from "app/redux/action/stateSlice";
 import Header from "@/components/index/header";
 import Body from "@/components/index/body";
 import Footer from "@/components/index/footer";
-import { useSearchParams } from 'next/navigation';
 
 const Page = () => {
+
   return (
     <>
-      <div className={`bck-amazon`}>
+      <div className="bck-xbox">
         <div className="wrapper mx-8">
           <Header />
-          <Body gen={'amazon'} />
+          <Body gen="xbox" />
           <Footer />
         </div>
       </div>

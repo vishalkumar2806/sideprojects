@@ -12,12 +12,7 @@ const Card = (props: any) => {
             <button
               className={`generate bck-${link}`}
             >
-            <Link className="cursor-pointer" href={{
-              pathname: '/generate',
-              query: { 
-                link : link
-              }
-            }} >{text}</Link>
+            <Link className="cursor-pointer" href={link} >{text}</Link>
             </button>
           </div>
       </div>

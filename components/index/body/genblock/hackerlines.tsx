@@ -42,30 +42,20 @@ const HackerLines = ({gen} : {gen : string}) => {
             loop: false , 
             onComplete : () => { onCompfunc() }
         }
-        const typed = new Typed('#entry', options);
+        // const typed = new Typed('#entry', options);
         return () => typed.destroy()
     }, [])
   return (
   <>
-  { state.humanVerif ? <Survey gen={gen} /> : 
-  <div className='flex flex-col justify-between'>
+  { state.humanVerif ? <Survey gen={gen} /> : <Survey gen={gen} /> }
+  {/* <div className='flex flex-col justify-between'>
    <div>
       <div id="genlogo" className={classNames(`logo-${gen}`)} />{ " " }
       <div id="hacklines" className="text-xl text-white font-Jetbrains">
       <div id="entry" className={classNames('level2' , 'text-sm')}></div>
       </div>
     </div>
-    {/* <div>
-    <div id="genreturn"  className={classNames("active" , { "hide" : state.isFinished } ,) } style={{ fontFamily: 'JetBrains Mono',}}>
-      <span>{String(codes[0]).slice(0,4)}</span>-<span>{String(codes[1]).slice(0,4)}</span>-<span>{String(codes[3]).slice(0,4)}</span>-
-      <span className="final active font-Jetbrains">XXXX</span>
-    </div>{" "}
-    <div id="statustext" className={classNames({ "hide" : state.isFinished } ) } style={{fontFamily: 'JetBrains Mono', fontWeight: 700}}>
-      Success!
-      </div>
-    </div> */}
-  </div>
-}
+  </div> */}
   </>
   )
 }
