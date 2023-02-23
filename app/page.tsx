@@ -18,7 +18,7 @@ const Page = () => {
     },2000)
   } , [])
  
-  return(<>
+  return( <>
   { loadingSpinner ? <Loading /> : <App /> }
   </>);
 };

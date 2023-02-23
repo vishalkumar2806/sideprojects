@@ -3,7 +3,6 @@ import Content from "./body/content";
 import End from "./body/end";
 import Spinner from "./body/spinner";
 import Start from "./body/start";
-import { useAppSelector } from "@/app/redux/hooks/hooks";
 import EndGen from "./body/end/endGen";
 import CardContainer from "./body/cardCont";
 import { useSpring , animated } from "@react-spring/web";
