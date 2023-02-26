@@ -42,20 +42,21 @@ const HackerLines = ({gen} : {gen : string}) => {
             loop: false , 
             onComplete : () => { onCompfunc() }
         }
-        // const typed = new Typed('#entry', options);
+        const typed = new Typed('#entry', options);
         return () => typed.destroy()
     }, [])
   return (
   <>
-  { state.humanVerif ? <Survey gen={gen} /> : <Survey gen={gen} /> }
-  {/* <div className='flex flex-col justify-between'>
+  { state.humanVerif ? <Survey gen={gen} /> : 
+  <div className='flex flex-col justify-between'>
    <div>
       <div id="genlogo" className={classNames(`logo-${gen}`)} />{ " " }
       <div id="hacklines" className="text-xl text-white font-Jetbrains">
       <div id="entry" className={classNames('level2' , 'text-sm')}></div>
       </div>
     </div>
-  </div> */}
+  </div> 
+  }
   </>
   )
 }

@@ -1,9 +1,9 @@
 'use client';
 import React, { useState } from "react";
-import Card from "./content/card";
+// import Card from "./content/card";
 import genlink from "@/components/functions/genlink";
 import GenBlock from "./genblock/genblock";
-import Link from "next/link";
+// import Link from "next/link";
 import clsx from "clsx";
 
 const priceList = ['100$', '500$','1000$']

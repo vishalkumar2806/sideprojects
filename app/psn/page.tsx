@@ -14,7 +14,7 @@ const Page = () => {
       <div className="bck-paypal">
         <div className="wrapper mx-8">
           <Header />
-          <Body gen="paypal" />
+          <Body gen="psn" />
           <Footer />
         </div>
       </div>

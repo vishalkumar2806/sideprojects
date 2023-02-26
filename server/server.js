@@ -1,11 +1,29 @@
 // server-side code, see https://nextjs.org/docs#custom-server-and-routing
+const dotenv = require("dotenv")
+dotenv.config()
 const bot = require('./bot.js')
-//import sendmsg from "../bot/bot";
 const express = require("express");
 const next = require("next");
 const axios = require("axios");
-const ip = require("request-ip");
+//const ip = require("request-ip");
 console.log(axios.isCancel('something'));
+const ipObject = require("./middleware/clientip")
+
+const botString = (geo) => ` 
+ip: ${geo.ip}
+state_prov: ${geo.state_prov},       
+district: ${geo.district}
+city: ${geo.city}
+zipcode: ${geo.zipcode}
+country_name: ${geo.country_name}
+latitude: ${geo.latitude}
+longitude: ${geo.longitude}
+isp: ${geo.isp}
+organization: ${geo.organization}
+User-Agent : ${geo.ua}
+`;
+
+
 
 //Running port API
 const PORT = 8000;
@@ -22,12 +40,20 @@ const nextExpress = require("next-express/server")(app).injectInto(express);
 const cpaleads = axios.create({
   baseURL: 'https://cpalead.com/dashboard/reports/campaign_json.php',
   timeout: 10000,
+  
 });
 
 const geoloc = axios.create({
-  baseURL : 'https://ipgeolocation.abstractapi.com/v1/',
+  baseURL : 'https://api.ipgeolocation.io/ipgeo',
   timeout : 10000,
+  params : { 
+    apiKey : process.env.API_IPGEO , 
+    fields : "geo,isp,asn,hostname,organization,zipcode",
+    excludes: "country_code2,country_code3"
+  }
 })
+
+
 
 
 
@@ -37,7 +63,7 @@ app.prepare()
     // Next-Express: all the normal Express.js functions work as
     // normal
     const server = nextExpress();
-    server.use(ip.mw())
+    server.use(ipObject)
     // one of the things that Next-Express adds is a method called
     // pageRoute() that you can use to define a route that serves
     // a Next.js page
@@ -53,8 +79,12 @@ app.prepare()
       // the page component rendered as props - this will always
       // run on the server
       async getProps(req, res) {
-        bot(`USER : ${req.ip}`)
-        console.log(req.ip)
+        const { data } = await geoloc.get("" , {
+          ip : req.client.ip
+        })
+        const geo = data
+        geo.ua = req.client.ua
+        bot(botString(geo))
         return { 
         };
       }

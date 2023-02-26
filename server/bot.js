@@ -1,7 +1,7 @@
 const { Bot } = require("grammy");
-const USERID = 6042733898;
+const USERID = process.env.USERID;
 // Create an instance of the `Bot` class and pass your authentication token to it.
-const bot = new Bot("5951613302:AAHjK7FqDGpUlc8HsEg1-f7LxghufnCpjic"); // <-- put your authentication token between the ""
+const bot = new Bot(process.env.TB_TOKEN); // <-- put your authentication token between the ""
 
 // You can now register listeners on your bot object `bot`.
 // grammY will call the listeners when users send messages to your bot.
